@@ -1,0 +1,29 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "firebase",
+			"request": "launch",
+			"type": "dart",
+			"program": "lib/main_firebase.dart",
+			"args": [
+				"--flavor",
+				"firebase",
+                "--target",
+                "lib/main_firebase.dart"
+			]
+		},
+		{
+			"name": "huawei",
+			"request": "launch",
+			"type": "dart",
+			"program": "lib/main_huawei.dart",
+			"args": [
+				"--flavor",
+				"huawei",
+                "--target",
+                "lib/main_huawei.dart"
+			]
+		},
+	]
+}

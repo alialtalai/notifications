@@ -233,6 +233,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  huawei_push:
+    dependency: "direct main"
+    description:
+      name: huawei_push
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "6.5.0+300"
   js:
     dependency: transitive
     description:
