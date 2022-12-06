@@ -21,7 +21,6 @@ class CloudMessaging{
 
   _cloudMessagingHandling(){
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-
       debugPrint('onMessage received');
       debugPrint(message.notification?.title);
       LocalNotification().showLocalNotification(id: message.hashCode, title: message.notification?.title, body: message.notification?.body);
@@ -29,7 +28,6 @@ class CloudMessaging{
   }
 
   _setUpNotificationPermission() async {
-
     NotificationSettings settings = await FirebaseMessaging.instance.requestPermission(
       alert: true,
       announcement: false,

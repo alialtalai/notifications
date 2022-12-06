@@ -18,7 +18,6 @@ Future<void> main() async {
   CloudMessaging.initialize();
   LocalNotification.initialize();
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-
   runApp(const MyApp());
 }
 

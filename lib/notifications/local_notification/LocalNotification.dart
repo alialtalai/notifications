@@ -33,29 +33,29 @@ class LocalNotification{
 
     await flutterLocalNotificationsPlugin.initialize(initializationSettings);
   }
-
-  Future<NotificationDetails> _notificationDetails() async {
-    AndroidNotificationDetails androidPlatformChannelSpecifics =
-    const AndroidNotificationDetails(
-      'channelId',
-      'channelName',
-      importance: Importance.max,
-      priority: Priority.max,
-      playSound: true,
-    );
-
-    DarwinNotificationDetails iosNotificationDetails = const DarwinNotificationDetails(presentAlert: true, presentBadge: true, presentSound: true,);
-
-    NotificationDetails platformChannelSpecifics = NotificationDetails(
-        android: androidPlatformChannelSpecifics,
-        iOS: iosNotificationDetails);
-
-    return platformChannelSpecifics;
-  }
+  /// uncomment if you want to customize notification for each platform
+  // Future<NotificationDetails> _notificationDetails() async {
+  //   AndroidNotificationDetails androidPlatformChannelSpecifics =
+  //    const AndroidNotificationDetails(
+  //      'channelId',
+  //     'channelName',
+  //     importance: Importance.max,
+  //     priority: Priority.max,
+  //     playSound: true,
+  //   );
+  //
+  //   DarwinNotificationDetails iosNotificationDetails = const DarwinNotificationDetails(presentAlert: true, presentBadge: true, presentSound: true,);
+  //
+  //   NotificationDetails platformChannelSpecifics = NotificationDetails(
+  //       android: androidPlatformChannelSpecifics,
+  //       iOS: iosNotificationDetails);
+  //
+  //   return platformChannelSpecifics;
+  // }
 
   Future<void> showLocalNotification({required int id, required String? title, required String? body}) async {
-    final platformChannelSpecifics = await _notificationDetails();
-    await flutterLocalNotificationsPlugin.show(id, title, body, platformChannelSpecifics);
+    // final platformChannelSpecifics = await _notificationDetails(); //==> pass it as a parameter to below line if you uncomment code above
+    await flutterLocalNotificationsPlugin.show(id, title, body,const NotificationDetails());
   }
 
 }
