@@ -1,0 +1,6 @@
+#include "Generated.xcconfig"
+
+FLUTTER_TARGET=lib/main_firebase.dart
+ASSET_PREFIX=firebase
+BUNDLE_NAME=notifications
+BUNDLE_DISPLAY_NAME=notifications

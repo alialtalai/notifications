@@ -55,7 +55,10 @@ class LocalNotification{
 
   Future<void> showLocalNotification({required int id, required String? title, required String? body}) async {
     // final platformChannelSpecifics = await _notificationDetails(); //==> pass it as a parameter to below line if you uncomment code above
-    await flutterLocalNotificationsPlugin.show(id, title, body,const NotificationDetails());
+    await flutterLocalNotificationsPlugin.show(id, title, body,const NotificationDetails()).onError((error, stackTrace){
+
+      print('local notification error $error');
+    });
   }
 
 }

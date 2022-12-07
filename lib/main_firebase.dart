@@ -1,7 +1,8 @@
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'app.dart';
+import 'flavors.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:notifications/app.dart';
 import 'package:notifications/notifications/local_notification/LocalNotification.dart';
 import 'package:notifications/notifications/remote_config/RemoteConfigs.dart';
 
@@ -18,7 +19,8 @@ Future<void> main() async {
   CloudMessaging.initialize();
   LocalNotification.initialize();
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-  runApp(MyApp(flavor: 'Firebase',));
+  F.appFlavor = Flavor.FIREBASE;
+  runApp(App());
 }
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {

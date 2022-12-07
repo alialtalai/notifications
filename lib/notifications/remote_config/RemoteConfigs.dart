@@ -33,7 +33,7 @@ class RemoteConfigs{
       debugPrint(exception.toString());
     }
   }
-  
+
   Future <List<dynamic>> getRemoteConfig()async{
     var response = remoteConfig.getString(remoteConfigsParameter.notification_channels.name);
     List<dynamic> data = jsonDecode(response);

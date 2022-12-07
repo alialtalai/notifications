@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'app.dart';
+import 'flavors.dart';
+
+
 import 'package:notifications/notifications/huawei_notification/HuaweiNotification.dart';
 
-import 'app.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
   HuaweiNotificaions.initialize();
-  runApp( MyApp(flavor: 'Huawei',));
+  F.appFlavor = Flavor.HUAWEI;
+  runApp(App());
 }

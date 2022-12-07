@@ -43,6 +43,9 @@ dependencies:
   firebase_analytics: ^10.0.6
   huawei_push: ^6.5.0+300
 
+
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -53,9 +56,47 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  flutter_flavorizr: ^2.1.5
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
+flavorizr:
+  flavors:
+    firebase:
+      app:
+        name: "notifications"
+        android:
+          flavorDimensions: "default"
+        ios:
+
+      android:
+        applicationId: "com.example.notifications.firebase"
+        firebase:
+          config: "./android/app/src/firebase/google-services.json"
+
+      ios:
+        bundleId: "com.example.notifications"
+#        firebase:
+#          config: ".firebase/apple/GoogleService-Info.plist"
+
+    huawei:
+      app:
+        name: "notifications"
+
+      android:
+        applicationId: "com.example.notifications.huawei"
+        agconnect:
+          config: "./android/app/src/huawei/agconnect-services.json"
+        firebase:
+          config: "./android/app/src/huawei/google-services.json"
+
+      ios:
+        bundleId: "com.example.notifications"
+#        firebase:
+#          config: ".firebase/apple/GoogleService-Info.plist"
+
+
+
 
 # The following section is specific to Flutter packages.
 flutter:

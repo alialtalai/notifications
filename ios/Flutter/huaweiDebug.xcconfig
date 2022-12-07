@@ -1,0 +1,6 @@
+#include "Generated.xcconfig"
+
+FLUTTER_TARGET=lib/main_huawei.dart
+ASSET_PREFIX=huawei
+BUNDLE_NAME=notifications
+BUNDLE_DISPLAY_NAME=notifications
