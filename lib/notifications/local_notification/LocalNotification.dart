@@ -37,7 +37,7 @@ class LocalNotification{
   Future<NotificationDetails> _notificationDetails() async {
     AndroidNotificationDetails androidPlatformChannelSpecifics =
      const AndroidNotificationDetails(
-       'Application notifications',
+       'Applicationnotifications',
       'Application notifications',
       importance: Importance.max,
       priority: Priority.max,
