@@ -5,42 +5,41 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:notifications/enums/remoteConfigs.dart';
 
-class RemoteConfigs{
-
+class RemoteConfigs {
   final remoteConfig = FirebaseRemoteConfig.instance;
 
   RemoteConfigs();
 
-  RemoteConfigs.initialize(){
+  RemoteConfigs.initialize() {
     _remoteConfigSetup();
     getRemoteConfig();
   }
 
-  Future <void> _remoteConfigSetup()async{
-    try{
+  Future<void> _remoteConfigSetup() async {
+    try {
       // should be changed before  production
       await remoteConfig.setConfigSettings(RemoteConfigSettings(
         fetchTimeout: const Duration(minutes: 0),
         minimumFetchInterval: const Duration(hours: 0),
       ));
       await remoteConfig.fetchAndActivate();
-
-    }on PlatformException catch (exception) {
+    } on PlatformException catch (exception) {
       debugPrint(exception.toString());
-
     } catch (exception) {
-      debugPrint('Unable to fetch remote config. Cached or default values will be used');
+      debugPrint(
+          'Unable to fetch remote config. Cached or default values will be used');
       debugPrint(exception.toString());
     }
   }
 
-  Future <List<dynamic>> getRemoteConfig()async{
-    var response = remoteConfig.getString(remoteConfigsParameter.notification_channels.name);
-    List<dynamic> data = jsonDecode(response);
+  Future<List<dynamic>?> getRemoteConfig() async {
+    var response = remoteConfig
+        .getString(remoteConfigsParameter.notification_channels.name);
+    if (response.isNotEmpty) {
+      List<dynamic> data = jsonDecode(response);
+      return data;
+    }
 
-    return data;
+    return null;
   }
-
-
-
 }
