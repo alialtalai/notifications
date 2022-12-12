@@ -8,6 +8,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.9"
+  agconnect_appmessaging:
+    dependency: "direct main"
+    description:
+      name: agconnect_appmessaging
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.5.0+300"
   archive:
     dependency: transitive
     description:

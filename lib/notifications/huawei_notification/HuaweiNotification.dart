@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:huawei_push/huawei_push.dart';
 
-class HuaweiNotificaions{
-
+class HuaweiNotificaions {
   HuaweiNotificaions();
   // call initialize constructor into the main function in main.dart
-  HuaweiNotificaions.initialize()  {
+  HuaweiNotificaions.initialize() {
     _initTokenStream();
     _onMessageReceived();
   }
-
 
   Future<void> _initTokenStream() async {
     Push.getToken("");
     Push.getTokenStream.listen(_onTokenEvent, onError: _onTokenError);
 
+    Push.getAAID().then((value) => print('huawei AAID: $value'));
   }
 
   void _onTokenEvent(String token) {
@@ -25,7 +24,6 @@ class HuaweiNotificaions{
   void _onTokenError(Object error) {
     debugPrint("TokenErrorEvent: $error");
   }
-
 
   void _onMessageReceived() {
     Push.onMessageReceivedStream.listen((RemoteMessage remoteMessage) {

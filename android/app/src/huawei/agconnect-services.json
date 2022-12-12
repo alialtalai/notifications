@@ -31,16 +31,16 @@
 		"client_id":"1034828439485435264",
 		"client_secret":"878D990606C36FC3E643572BC89D737750D65FD4F8A0EB2FB8D110F944E1BC40",
 		"project_id":"99536292102773561",
-		"app_id":"107461133",
+		"app_id":"107481147",
 		"api_key":"DAEDANje09MbZUN0i6lk2QmFk/JLg9teZh3KDfyYfjPET0i4LzkxtZnH3ieFSkUX9X7cibrYSI3L212XErQPU34nNi3vNWbDS+7PIw==",
 		"package_name":"com.example.notifications.huawei"
 	},
 	"oauth_client":{
-		"client_id":"107461133",
+		"client_id":"107481147",
 		"client_type":1
 	},
 	"app_info":{
-		"app_id":"107461133",
+		"app_id":"107481147",
 		"package_name":"com.example.notifications.huawei"
 	},
 	"service":{
@@ -77,15 +77,15 @@
 		{
 			"package_name":"com.example.notifications.huawei",
 			"client":{
-				"app_id":"107461133"
+				"app_id":"107481147"
 			},
 			"app_info":{
 				"package_name":"com.example.notifications.huawei",
-				"app_id":"107461133"
+				"app_id":"107481147"
 			},
 			"oauth_client":{
 				"client_type":1,
-				"client_id":"107461133"
+				"client_id":"107481147"
 			}
 		},
 		{
