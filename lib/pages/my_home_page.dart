@@ -1,36 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:huawei_push/huawei_push.dart';
+import 'package:notifications/providers/HuaweiNotificationProvider.dart';
+import 'package:provider/provider.dart';
 import '../flavors.dart';
-import '../notifications/huawei_notification/InAppMessagingHuawei.dart';
+
+
+
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+
+   const MyHomePage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyHomePage> createState() => MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  String token = '';
+class MyHomePageState extends State<MyHomePage> {
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
+  var textController = TextEditingController();
 
-  }
+
+
+
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(F.title),
-      ),
+        title: Text(F.title),),
       body: Column(
         children: [
           Center(
-            child: Text(
-              '$token',
+            child: TextField(
+              controller: textController,
             ),
           ),
           ElevatedButton(
@@ -38,15 +41,25 @@ class _MyHomePageState extends State<MyHomePage> {
                 Push.getToken("");
                 Push.getTokenStream.listen((token) {
                   setState(() {
-                    this.token = token;
+                    textController.text = token;
                   });
                 }, onError: (er) {
-                  this.token = er.toString();
+                  textController.text  = er.toString();
                 });
               },
-              child: const Text('get Token'))
+              child: const Text('get Token')),
+          const SizedBox(height: 200,),
+
+          Column(
+            children: [
+              Text('latitude: ${context.watch<HuaweiNotificationProvider>().latitude} '),
+              Text('longitude: ${context.watch<HuaweiNotificationProvider>().longitude} '),
+            ],
+          )
+
         ],
       ),
     );
   }
 }
+
